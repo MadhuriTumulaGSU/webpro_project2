@@ -1,0 +1,98 @@
+/* style.css */
+body {
+    background: #fff;
+    font-family: sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.user-bar {
+    text-align: right;
+    margin: 10px 30px 0 0;
+    font-size: 1em;
+}
+
+h1 {
+    margin-top: 10px;
+    font-size: 2.5em;
+}
+
+.description {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+#puzzle-container {
+    margin: 30px auto 20px auto;
+    position: relative;
+    background: #ccc;
+    border: 2px solid #000;
+    box-sizing: content-box;
+    display: grid;
+    grid-gap: 0;
+}
+
+.puzzle-tile {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    font-size: 32pt;
+    color: #000;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s, background-position 0.3s;
+    background-repeat: no-repeat;
+    background-color: #fff;
+}
+
+.movablepiece {
+    border-color: red !important;
+    color: #006600 !important;
+    text-decoration: underline;
+}
+
+#shuffle-button, #cheat-button {
+    margin: 10px 10px 20px 10px;
+    padding: 10px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+#game-info {
+    margin: 10px auto 20px auto;
+    font-size: 1.1em;
+}
+
+.history {
+    margin: 20px auto;
+    width: 420px;
+    text-align: left;
+    font-size: 1em;
+}
+
+.validators {
+    text-align: right;
+    margin: 20px 40px 0 0;
+}
+
+.validators img {
+    border: none;
+}
+
+#win-notification {
+    background: #e0ffe0;
+    border: 2px solid #090;
+    padding: 20px;
+    margin: 20px auto;
+    width: 400px;
+    text-align: center;
+    font-size: 1.3em;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #090;
+}
