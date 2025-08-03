@@ -28,4 +28,5 @@
 - Background image management
 
 ## Team
-[List team members and contributions]
+- Madhuri Tumula 
+- Solo project
