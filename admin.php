@@ -3,7 +3,7 @@
 session_start();
 require 'db.php';
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
-    header('Location: index.php');
+    header('Location: landing.php');
     exit;
 }
 $users = $pdo->query("SELECT * FROM users")->fetchAll();
@@ -29,7 +29,7 @@ $backgrounds = $pdo->query("SELECT * FROM background_images")->fetchAll();
     <p>
         <a href="upload_bg.php">Upload New Background</a> |
         <a href="stats.php">View Leaderboards/Stats</a> |
-        <a href="index.php">Back to Game</a>
+        <a href="landing.php">Back to Game</a>
     </p>
 
     <h3>Users</h3>

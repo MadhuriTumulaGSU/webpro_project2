@@ -85,6 +85,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <button type="submit">Save Preferences</button>
 </form>
 
-<p style="text-align:center;"><a href="index.php">Back to Game</a></p>
+<p style="text-align:center;"><a href="game.php">Back to Game</a></p>
 </body>
 </html>

@@ -68,6 +68,7 @@ $defaultBg = $backgrounds[0]['image_url'] ?? 'backgrounds/bg1.jpg';
             Sam Loyd is often mistakenly credited with its invention.
         </p>
     </div>
+    <div id="puzzle-container" role="grid" aria-label="Fifteen Puzzle board"></div>
     <div class="validators">
         <a href="https://validator.w3.org/" target="_blank">
             <img src="https://www.w3.org/Icons/valid-html401" alt="Valid HTML!" height="31" width="88">

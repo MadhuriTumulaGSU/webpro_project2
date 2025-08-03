@@ -64,6 +64,6 @@ if (isset($_SESSION['user_id'])) {
     <p style="text-align:center;">Log in to see your personal stats.</p>
 <?php endif; ?>
 
-<p style="text-align:center;"><a href="index.php">Back to Game</a></p>
+<p style="text-align:center;"><a href="game.php">Back to Game</a></p>
 </body>
 </html>

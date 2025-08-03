@@ -1,98 +1,228 @@
-/* style.css */
-body {
-    background: #fff;
-    font-family: sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+/* mainpage.css - improved */
+
+/* CSS Variables for colors and sizing */
+:root {
+  --bg-color: #f9f9f9;
+  --primary-color: #006600;
+  --secondary-color: #900000;
+  --border-color: #333;
+  --highlight-color: #009900;
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --tile-size: 100px;
+  --gap-size: 4px;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-color);
+  font-family: var(--font-family);
+  text-align: center;
+  margin: 0;
+  padding: 0 10px 30px;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* User bar with better spacing and smaller font on mobile */
 .user-bar {
-    text-align: right;
-    margin: 10px 30px 0 0;
-    font-size: 1em;
+  width: 100%;
+  max-width: 960px;
+  text-align: right;
+  margin: 10px auto;
+  font-size: 0.9rem;
+  font-weight: 600;
+  user-select: none;
+}
+
+.user-bar a {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.user-bar a:hover,
+.user-bar a:focus {
+  color: var(--highlight-color);
+  text-decoration: underline;
+  outline: none;
 }
 
 h1 {
-    margin-top: 10px;
-    font-size: 2.5em;
+  margin-top: 20px;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  letter-spacing: 1.5px;
+  text-shadow: 1px 1px 2px #aaa;
 }
 
 .description {
-    margin-bottom: 20px;
-    font-size: 1.2em;
+  margin: 15px auto 25px;
+  font-size: 1.25rem;
+  max-width: 600px;
+  line-height: 1.5;
+  color: #333;
 }
 
+/* Puzzle container grid setup */
 #puzzle-container {
-    margin: 30px auto 20px auto;
-    position: relative;
-    background: #ccc;
-    border: 2px solid #000;
-    box-sizing: content-box;
-    display: grid;
-    grid-gap: 0;
+  margin: 0 auto 20px;
+  position: relative;
+  background: #ddd;
+  border: 3px solid var(--border-color);
+  display: grid;
+  grid-gap: var(--gap-size);
+  user-select: none;
+  /* Width and height set dynamically by JS */
 }
 
+/* Puzzle tiles styling */
 .puzzle-tile {
-    width: 100px;
-    height: 100px;
-    border: 2px solid #000;
-    box-sizing: border-box;
-    font-size: 32pt;
-    color: #000;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    user-select: none;
-    transition: all 0.2s, background-position 0.3s;
-    background-repeat: no-repeat;
-    background-color: #fff;
+  width: var(--tile-size);
+  height: var(--tile-size);
+  border: 2px solid var(--border-color);
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
 }
 
-.movablepiece {
-    border-color: red !important;
-    color: #006600 !important;
-    text-decoration: underline;
+.puzzle-tile:focus {
+  outline: 3px solid var(--highlight-color);
+  outline-offset: 2px;
 }
 
-#shuffle-button, #cheat-button {
-    margin: 10px 10px 20px 10px;
-    padding: 10px 30px;
-    font-size: 1.2em;
-    cursor: pointer;
+.puzzle-tile:hover,
+.puzzle-tile.movablepiece {
+  border-color: var(--highlight-color);
+  color: var(--primary-color);
+  text-decoration: underline;
+  box-shadow: 0 0 8px var(--highlight-color);
+  transform: scale(1.05);
 }
 
+/* Controls container */
+#shuffle-button,
+#cheat-button {
+  margin: 15px 10px 25px;
+  padding: 12px 40px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 2px solid var(--primary-color);
+  background-color: #fff;
+  color: var(--primary-color);
+  border-radius: 8px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+#shuffle-button:hover,
+#shuffle-button:focus,
+#cheat-button:hover,
+#cheat-button:focus {
+  background-color: var(--primary-color);
+  color: #fff;
+  outline: none;
+}
+
+/* Game info */
 #game-info {
-    margin: 10px auto 20px auto;
-    font-size: 1.1em;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  color: #444;
 }
 
+#best-score {
+  margin-left: 15px;
+  font-weight: 700;
+  color: var(--secondary-color);
+}
+
+/* History text box */
 .history {
-    margin: 20px auto;
-    width: 420px;
-    text-align: left;
-    font-size: 1em;
+  max-width: 440px;
+  margin: 30px auto 40px;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: left;
+  color: #555;
+  border-left: 4px solid var(--primary-color);
+  padding-left: 15px;
+  font-style: italic;
 }
 
+/* Validator badges container */
 .validators {
-    text-align: right;
-    margin: 20px 40px 0 0;
+  max-width: 960px;
+  width: 100%;
+  text-align: right;
+  margin: 20px auto 0;
 }
 
 .validators img {
-    border: none;
+  border: none;
+  margin-left: 10px;
+  vertical-align: middle;
+  cursor: pointer;
 }
 
+/* Win notification */
 #win-notification {
-    background: #e0ffe0;
-    border: 2px solid #090;
-    padding: 20px;
-    margin: 20px auto;
-    width: 400px;
-    text-align: center;
-    font-size: 1.3em;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #090;
+  background: #e6ffe6;
+  border: 3px solid var(--highlight-color);
+  padding: 25px 30px;
+  margin: 25px auto;
+  max-width: 420px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-radius: 12px;
+  box-shadow: 0 0 15px var(--highlight-color);
+  color: var(--primary-color);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  :root {
+    --tile-size: 70px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .description {
+    font-size: 1rem;
+  }
+  #shuffle-button,
+  #cheat-button {
+    padding: 10px 25px;
+    font-size: 1rem;
+  }
+  .history {
+    max-width: 90%;
+    font-size: 0.9rem;
+  }
+  .user-bar {
+    font-size: 0.8rem;
+    margin: 10px 5px;
+  }
 }
